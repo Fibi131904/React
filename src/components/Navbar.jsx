@@ -1,6 +1,6 @@
 import React from 'react';
 
- export const Navbar = () => {
+  const Navbar = () => {
     <nav className='nav'>
         <div>
           <a>Profile</a>
@@ -20,3 +20,5 @@ import React from 'react';
       </nav>
 
  }
+
+ export default Navbar;
