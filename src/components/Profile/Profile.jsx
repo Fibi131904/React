@@ -1,21 +1,18 @@
 import React from 'react';
 import MyPosts from './MyPost/Posts/MyPosts';
-import classes from './Profile.module.css';
+import ProfileInfo from './MyPost/ProfileInfo/ProfileInfo';
 
- const Profile = () => {
-   return (
 
-<div>
-  <img src='https://cdn.pixabay.com/photo/2017/02/08/17/24/fantasy-2049567__480.jpg' />
 
-  <div>
-    <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQK2yuHuE_KiWXOfDSMKzBFbAFiolnyJ9gtbQ&usqp=CAU' />
-    ava+ description
-  </div>
-  <MyPosts/>
-</div>
-   );
 
- }
+const Profile = () => {
+  return (
+    <div>
+      <ProfileInfo/>
+      <MyPosts/>
+    </div>
+  );
 
- export default Profile;
+}
+
+export default Profile;
