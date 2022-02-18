@@ -11,8 +11,11 @@ import { BrowserRouter, Route, Routes  } from 'react-router-dom';
 
 
 
-
-function App() {
+function App(props:any) {
+  let posts = [
+    { id: 1, message: 'Hi, how are you?', likesCount: 15 },
+    { id: 2, message: 'Hi, how are you?', likesCount: 20 }
+  ]
   return (
     <BrowserRouter>
       <div className='app-wrapper'>
@@ -20,8 +23,8 @@ function App() {
         <Navbar />
         
         <Routes>
-          <Route path='/profile' element={<Profile />} />
-          <Route path='/dialogs' element={<Dialogs />} />
+          <Route path='/profile' element = {<Profile post={props.posts}/>} />
+          <Route path='/dialogs' element={<Dialogs dialog={props.dialogs} messages={props.messages} />} />
           <Route path='/nems' element={<News />} />
         </Routes>
         </div>
