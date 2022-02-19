@@ -7,11 +7,11 @@ import ProfileInfo from './MyPost/ProfileInfo/ProfileInfo';
 
 const Profile = (props:any) => {
  
-  
+ 
   return (
     <div>
       <ProfileInfo/>
-      <MyPosts posts={props.posts}/>
+      <MyPosts posts={props.state.posts}/>
     </div>
   );
 

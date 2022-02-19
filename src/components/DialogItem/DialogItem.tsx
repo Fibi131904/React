@@ -8,14 +8,14 @@ id: number
 }
 
 
-const DialogItem = (props: DialogItemPropsType)=> {
+const DialogItem = (props: DialogItemPropsType) => {
   let patsh = '/dialog/' + props.id;
   return (
-  <div className={classes.dialog + ' ' + classes.active}>
-          <NavLink to = {patsh}> {props.name}</NavLink>
-        </div>
+    <div className={classes.dialog + ' ' + classes.active}>
+      <NavLink to={patsh}> {props.name}</NavLink>
+    </div>
   )
-  }
+}
 
 
 

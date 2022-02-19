@@ -23,6 +23,9 @@ import classes from './Navbar.module.css';
           <div className={classes.item}>
             <NavLink to='/settings'className={navData => navData.isActive ? classes.active: classes.item}>Settings</NavLink>
           </div>
+          <div>
+          <NavLink to='/Frends'className={navData => navData.isActive ? classes.active: classes.item}>Frends</NavLink>
+          </div>
         </nav>
 
       )

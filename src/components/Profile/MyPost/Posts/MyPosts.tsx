@@ -6,7 +6,8 @@ import classes from './MyPosts.module.css';
 
 
 const MyPosts = (props:any) => {
-  let postsElement = props.posts.map((p: { message: string; likesCount: number; }) => <Post message={p.message} likesCount={p.likesCount} />);
+  let postsElement = props.state.posts.map((p: { message: string; likesCount: number; }) => 
+  <Post message={p.message} likesCount={p.likesCount} />);
   return (
     <div className={classes.postsBlock}>
       <h3> My Posts</h3>

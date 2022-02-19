@@ -6,9 +6,8 @@ type MessagePropsType ={
   message: string
 }
 
-const Message = (props: MessagePropsType)=> {
-  return <div className={classes.message}>{props.message}</div>
- }
+const Message = (props: MessagePropsType)=><div className={classes.message}>{props.message}</div>
+ 
 
 
 
