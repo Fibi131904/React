@@ -2,9 +2,9 @@ import React from 'react';
 import './App.css';
 import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
-import Profile from './components/Profile/MyPost/Posts/MyPosts';
 import Dialogs from './components/Dialogs/Dialogs';
 import {  Route, Routes  } from 'react-router-dom';
+import { Profile } from './components/Profile/Profile';
 
 
 
@@ -18,16 +18,17 @@ function App(props:any) {
   ]
   return (
    
-      <div className='app-wrapper'>
-        <Header />
-        <Navbar />
-        
-        <Routes>
-        <Route path='/' element={<Dialogs state={props.state.dialogePage}/>} />
-        <Route path='/profile' element = {<Profile state={props.state.profilePage}/>} />
-        </Routes>
-        </div>
-     
+    <div className='app-wrapper'>
+      <Header />
+      <Navbar />
+
+      <Routes>
+        <Route path='/' element={<Dialogs state={props.state.dialogePage} />} />
+        <Route path='/profile' element={<Profile profilePage={props.state.profilePage}
+          dispatchEvent={props.dispatchEvent} />} />
+      </Routes>
+    </div>
+
    
   )
 }

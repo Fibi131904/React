@@ -1,30 +1,45 @@
 import React from 'react';
-import { classicNameResolver } from 'typescript';
 import Post from '../Post/Post';
 import classes from './MyPosts.module.css';
 
 
 
-const MyPosts = (props:any) => {
-  let postsElement = props.state.posts.map((p: { message: string; likesCount: number; }) => 
-  <Post message={p.message} likesCount={p.likesCount} />);
+const MyPosts = (props: any) => {
+  let postElements =
+    props.posts.map((p: { message: any; likesCount: any; }) => <Post Message={p.message} likesCount={p.likesCount} />)
+
+  let newPostElement = React.createRef<HTMLTextAreaElement>();
+
+  let addPost = () => {
+       props.dispatch({type: 'ADD-Post'});
+  }
+
+  const onPostChange = () => {
+       let text = newPostElement.current?.value
+       let action = {type: 'UPDATE=NEW-POST-TEXT', newText: text}
+    props.dispatch(action)
+
+  }
+
+
   return (
     <div className={classes.postsBlock}>
       <h3> My Posts</h3>
       <div>
         <div>
-          <textarea></textarea>
+          <textarea onChange={onPostChange} ref={newPostElement}
+            value={props.newPostText} />
         </div>
         <div>
-          <button>Add post</button>
+          <button onClick={addPost}>Add post</button>
         </div>
       </div>
       <div className={classes.posts}>
-        {postsElement}
+        {postElements}
       </div>
     </div>
   )
 }
 
 
-      export default MyPosts;
+export default MyPosts;

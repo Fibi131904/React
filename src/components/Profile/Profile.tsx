@@ -5,16 +5,16 @@ import ProfileInfo from './MyPost/ProfileInfo/ProfileInfo';
 
 
 
-const Profile = (props:any) => {
+ export const Profile = (props:any) => {
  
  
   return (
     <div>
       <ProfileInfo/>
-      <MyPosts posts={props.state.posts}/>
+      <MyPosts posts={props.profilePage.posts}addPost={props.addPost}
+      newPostText={props.profilePage.newPostText} dispatchEvent={props.dispatchEvent}/>
     </div>
   );
 
 }
 
-export default Profile;
