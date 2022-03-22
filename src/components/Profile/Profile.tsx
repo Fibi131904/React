@@ -12,7 +12,8 @@ import ProfileInfo from './MyPost/ProfileInfo/ProfileInfo';
     <div>
       <ProfileInfo/>
       <MyPosts posts={props.profilePage.posts}addPost={props.addPost}
-      newPostText={props.profilePage.newPostText} dispatchEvent={props.dispatchEvent}/>
+      newPostText={props.profilePage.newPostText} 
+      dispatchEvent={props.dispatchEvent}/>
     </div>
   );
 
