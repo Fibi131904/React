@@ -1,21 +1,23 @@
-import store from './components/redux/state';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
+import store, { StoreType } from './components/redux/store';
 
 
 
-let rerenderEntireTree = (state: { profilePage: { posts: { id: number; message: string; likesCount: number; }[]; newPostText: string; }; dialogsPage: { messages: { id: number; message: string; }[]; }; dialogs: { id: number; name: string; }[]; sidebar: { frends: { id: number; name: string; }[]; }; }) => {
+let rerenderEntireTree = (store: StoreType) => {
     ReactDOM.render(
         <BrowserRouter>
-            <App state={state} dispatchEvent={store.dispatchEvent.bind(store)} />
-        </ BrowserRouter>, document.getElementById('root'));
+            <App state={store.getState()} dispatchEvent={store.dispatchEvent.bind(store)} />
+        </BrowserRouter>, document.getElementById('root'));
+
 }
 
-rerenderEntireTree(store.getState());
-store.subscribe(rerenderEntireTree);
+rerenderEntireTree(store);
+store.subscribe(() => { rerenderEntireTree(store) });
 
 
 

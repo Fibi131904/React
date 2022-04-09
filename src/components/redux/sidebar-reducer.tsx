@@ -1,5 +1,9 @@
+import { StateType } from "./store";
 
- const sidebarReducer= (state, action)=> {
+type SidebarReducerType={
+   state: StateType 
+}
+ const sidebarReducer= (state: SidebarReducerType)=> {
     return state
 }
 

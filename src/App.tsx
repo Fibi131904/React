@@ -5,25 +5,27 @@ import Navbar from './components/Navbar/Navbar';
 import Dialogs from './components/Dialogs/Dialogs';
 import {  Route, Routes  } from 'react-router-dom';
 import { Profile } from './components/Profile/Profile';
+import { ActionType, StateType } from './components/redux/store';
 
 
 
 
+type PropsType={
+  state: StateType
+  dispatchEvent:(action: ActionType)=>void
+  
 
+}
 
-function App(props:any) {
-  let posts = [
-    { id: 1, message: 'Hi, how are you?', likesCount: 15 },
-    { id: 2, message: 'Hi, how are you?', likesCount: 20 }
-  ]
-  return (
+function App(props:PropsType) {
+   return (
    
     <div className='app-wrapper'>
       <Header />
       <Navbar />
 
       <Routes>
-        <Route path='/' element={<Dialogs state={props.state.dialogePage} />} />
+        <Route path='/' element={<Dialogs DialogsPage={props.state.dialogsPage}  dispatchEvent={props.dispatchEvent}/>} />
         <Route path='/profile' element={<Profile profilePage={props.state.profilePage}
           dispatchEvent={props.dispatchEvent} />} />
       </Routes>
