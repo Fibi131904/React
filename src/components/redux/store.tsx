@@ -1,4 +1,3 @@
-import { profile } from "console"
 import { dialogsReducer } from './dialogs-reducer'
 import { profileReducer } from "./profile-reducer"
 import sidebarReducer from './sidebar-reducer'
@@ -70,9 +69,9 @@ export const sendMassageAC = (messageText: string) => {
         messageText: messageText
     } as const
 }
-export const updateMassageTextAC = (updateText: string) => {
+export const updateMassageBodyAC = (updateText: string) => {
     return {
-        type: "UPDATE_MESSAGE_TEXT",
+        type: "UPDATE_MESSAGE_BODY",
         updateText: updateText
     } as const
 }
@@ -112,13 +111,16 @@ let store = {
     }
 
  },
-    _callSubscriber() {
+    _callSubscriber()
+     {
         console.log('state is changed');
     },
-        getState() {
+        getState()
+         {
     return this._state;
 },
-subscribe(observer) {
+subscribe(observer)
+ {
     this._callSubscriber = observer
 },
 

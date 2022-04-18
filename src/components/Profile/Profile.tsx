@@ -1,22 +1,18 @@
 import React from 'react';
-import { ActionType, ProfilePageType } from '../redux/store';
-import MyPosts from './MyPost/Posts/MyPosts';
+import { ActionType, ProfilePageType, StoreType } from '../redux/store';
+import MyPostsContainer from './MyPost/Posts/MyPostsContainer';
 import ProfileInfo from './MyPost/ProfileInfo/ProfileInfo';
 
-type MessagePropsType= {
-  dispatchEvent:(action: ActionType)=>void
-  profilePage: ProfilePageType
-}
 
 
- export const Profile = (props: MessagePropsType) => {
+
+ export const Profile = () => {
  
  
   return (
     <div>
       <ProfileInfo/>
-      <MyPosts profilePage={props.profilePage}
-      dispatchEvent={props.dispatchEvent}/>
+      <MyPostsContainer />
     </div>
   );
 

@@ -5,33 +5,21 @@ import Navbar from './components/Navbar/Navbar';
 import Dialogs from './components/Dialogs/Dialogs';
 import {  Route, Routes  } from 'react-router-dom';
 import { Profile } from './components/Profile/Profile';
-import { ActionType, StateType } from './components/redux/store';
+import DialogsContainer from './components/Dialogs/DialogsContainer';
 
 
-
-
-type PropsType={
-  state: StateType
-  dispatchEvent:(action: ActionType)=>void
-  
-
-}
-
-function App(props:PropsType) {
-   return (
-   
+function App() {
+  return (
     <div className='app-wrapper'>
       <Header />
       <Navbar />
-
-      <Routes>
-        <Route path='/' element={<Dialogs DialogsPage={props.state.dialogsPage}  dispatchEvent={props.dispatchEvent}/>} />
-        <Route path='/profile' element={<Profile profilePage={props.state.profilePage}
-          dispatchEvent={props.dispatchEvent} />} />
-      </Routes>
+      <div>
+        <Routes>
+          <Route path='/' element={<DialogsContainer />} />
+          <Route path='/profile' element={<Profile />} />
+        </Routes>
+      </div>
     </div>
-
-   
   )
 }
  
